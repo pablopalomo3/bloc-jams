@@ -74,7 +74,7 @@ var setCurrentAlbum = function(album) {
          if (currentParent === null) {
              console.log('No parent found');
          }
-         if (currentParent.className === null) {
+         if (targetClass.className === null) {
              console.log('No parent found with that class name');
          }
          while (currentParent.className !== targetClass && currentParent.className !== null) {
@@ -83,6 +83,7 @@ var setCurrentAlbum = function(album) {
          return currentParent;
      }
  };
+
 
  var getSongItem = function(element) {
      switch (element.className) {
