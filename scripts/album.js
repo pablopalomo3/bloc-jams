@@ -43,30 +43,31 @@ var createSongRow = function(songNumber, songName, songLength) {
     var $row = $(template);
 
     var clickHandler = function() {
-        var songNumber = $(this).attr('data-song-number');
+    	var songNumber = $(this).attr('data-song-number');
 
-        if (currentlyPlayingSong !== null) {
-            var currentlyPlayingCell = $('.song-item-number[data-song-number="' + currentlyPlayingSong + '"]');
-            currentlyPlayingCell.html(currentlyPlayingSong);
-        }
-        if (currentlyPlayingSong !== songNumber) {
-            $(this).html(pauseButtonTemplate);
-            currentlyPlayingSong = songNumber;
-        } else if (currentlyPlayingSong === songNumber) {
-            $(this).html(playButtonTemplate);
-            currentlyPlayingSong = null;
-        }
-    }
+    	if (currentlyPlayingSong !== null) {
+    		var currentlyPlayingCell = $('.song-item-number[data-song-number="' + currentlyPlayingSong + '"]');
+    		currentlyPlayingCell.html(currentlyPlayingSong);
+    	}
+    	if (currentlyPlayingSong !== songNumber) {
+    		$(this).html(pauseButtonTemplate);
+    		currentlyPlayingSong = songNumber;
+    	} else if (currentlyPlayingSong === songNumber) {
+    		$(this).html(playButtonTemplate);
+    		currentlyPlayingSong = null;
+    	}
+    };
 
     var onHover = function(event) {
         var songNumberCell = $(this).find('.song-item-number');
-        var songNumber = songNumberCell.att('data-song-number');
+        var songNumber = songNumberCell.attr('data-song-number');
 
         if (songNumber !== currentlyPlayingSong) {
             songNumberCell.html(playButtonTemplate);
         }
     };
-    var offHover = function() {
+
+    var offHover = function(event) {
         var songNumberCell = $(this).find('.song-item-number');
         var songNumber = songNumberCell.attr('data-song-number');
 
@@ -79,7 +80,7 @@ var createSongRow = function(songNumber, songName, songLength) {
     $row.hover(onHover, offHover);
     return $row;
 
-}
+};
 
 var setCurrentAlbum = function(album) {
      // #1
