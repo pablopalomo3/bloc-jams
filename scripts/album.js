@@ -55,11 +55,7 @@ var createSongRow = function(songNumber, songName, songLength) {
                 currentSoundFile.play();
             }  else  {
                 $(this).html(playButtonTemplate);
-<<<<<<< HEAD
-                $('.main-controls .play-pause').html(playerBarPauseButton);
-=======
                 $playPauseButton.html(playerBarPauseButton);
->>>>>>> assignment-20-buzz
                 currentSoundFile.pause();
             }
         }
