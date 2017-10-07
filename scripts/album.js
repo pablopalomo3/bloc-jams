@@ -75,7 +75,7 @@ var createSongRow = function(songNumber, songName, songLength) {
                 currentSoundFile.play();
             }  else  {
                 $(this).html(playButtonTemplate);
-                $('.main-controls .play-pause').html(playerBarPlayButton);
+                $('.main-controls .play-pause').html(playerBarPauseButton);
                 currentSoundFile.pause();
             }
         }
