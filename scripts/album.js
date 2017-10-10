@@ -35,27 +35,6 @@ var createSongRow = function(songNumber, songName, songLength) {
 
     var $row = $(template);
 
-// original code
-/*
-    var clickHandler = function() {
-    	var songNumber = parseInt($(this).attr('data-song-number'));
-
-    	if (currentlyPlayingSongNumber !== null) {
-    		var currentlyPlayingCell = getSongNumberCell(currentlyPlayingSongNumber);
-    		currentlyPlayingCell.html(currentlyPlayingSongNumber);
-    	}
-    	if (currentlyPlayingSongNumber !== songNumber) {
-    		$(this).html(pauseButtonTemplate);
-    		setSong(songNumber);
-            updatePlayerBarSong();
-    	} else if (currentlyPlayingSongNumber === songNumber) {
-    		$(this).html(playButtonTemplate);
-            $('.main-controls .play-pause').html(playerBarPlayButton);
-    		setSong(null);
-    	}
-    };
-*/
-// my attempt
     var clickHandler = function() {
         var songNumber = parseInt($(this).attr('data-song-number'));
 
@@ -71,11 +50,11 @@ var createSongRow = function(songNumber, songName, songLength) {
     	} else if  (currentlyPlayingSongNumber === songNumber) {
             if (currentSoundFile.isPaused()) {
                 $(this).html(pauseButtonTemplate);
-                $('.main-controls .play-pause').html(playerBarPlayButton);
+                $('.main-controls .play-pause').html(playerBarPauseButton);
                 currentSoundFile.play();
             }  else  {
                 $(this).html(playButtonTemplate);
-                $('.main-controls .play-pause').html(playerBarPauseButton);
+                $('.main-controls .play-pause').html(playerBarPlayButton);
                 currentSoundFile.pause();
             }
         }
