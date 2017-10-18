@@ -53,6 +53,10 @@ var createSongRow = function(songNumber, songName, songLength) {
     		$(this).html(pauseButtonTemplate);
     		setSong(songNumber);
             currentSoundFile.play();
+            var $volumeFill = $('volume .fill');
+            var $volumeThumb = $('volume .thumb');
+            $volumeFill.width(currentVolume + '%');
+            $volumeThumb.css({left: currentVolume + '%'});
             updateSeekBarWhileSongPlays();
             updatePlayerBarSong();
     	} else if  (currentlyPlayingSongNumber === songNumber) {
@@ -256,6 +260,7 @@ var togglePlayFromPlayerBar = function() {
     if (currentlyPlayingSongNumber === null){
         setSong(1);
         currentSoundFile.play();
+        $playPauseButton.html(playerBarPauseButton);
         updatePlayerBarSong();
     } else if (currentSoundFile.isPaused()) {
         songNumberCell.html(pauseButtonTemplate);
@@ -266,7 +271,7 @@ var togglePlayFromPlayerBar = function() {
         $playPauseButton.html(playerBarPlayButton);
         currentSoundFile.pause();
     }
-
+    updateSeekBarWhileSongPlays();
 
 };
 
