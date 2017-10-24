@@ -303,11 +303,11 @@ var filterTimeCode = function(timeInSeconds) {
     var wholeSeconds = Math.floor(timeIn);
     var wholeMinutes = Math.floor(wholeSeconds / 60);
     var remainder = Math.floor(timeIn % 60);
-    //return the time in format x:xx
-    if (wholeSeconds < 10) {
+
+    if (remainder < 10) {
         remainder = '0' + remainder;
     }
-
+    //return the time in format x:xx
     return wholeMinutes + ':' + remainder;
 };
 
